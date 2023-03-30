@@ -12,7 +12,7 @@ const Home = () => {
             <Stack.Screen
                 options={{
                     headerStyle: {backgroundColor: COLORS.lightWhite},
-                    headerShadowVisible: false,
+                    headerShadowVisible: true,
                     headerLeft: () => (
                         <ScreenHeaderBtn iconUrl={icons.menu} dimension="60%"/>
                     ),
@@ -24,9 +24,15 @@ const Home = () => {
              />
             <ScrollView showsHorizontalScrollIndicator={false}>
                 <View style={{flex: 1, padding: SIZES.medium}}>
-                    <Welcome />
-                    <Popularjobs />
-                    <Nearbyjobs />
+                    <Welcome 
+                        
+                    />
+                    <Popularjobs 
+                    
+                    />
+                    <Nearbyjobs 
+                    
+                    />
                 </View>
             </ScrollView>
         </SafeAreaView>
