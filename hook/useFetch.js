@@ -7,19 +7,18 @@ const rapidApiKey = process.env.RAPID_API_KEY;
 const useFetch = (endpoint, query) => {
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const [isError, setIsError] = useState(null);
-
-    const axios = require("axios");
+    const [error, setError] = useState(null);
 
     const options = {
         method: 'GET',
-        url: `https://jsearch.p.rapidapi.com/${endpoint}`,
-        params: { ...query },
+        url:   `https://jsearch.p.rapidapi.com/${endpoint}}`,
+        params: {...query},
         headers: {
-            'X-RapidAPI-Key': rapidApiKey,
-            'X-RapidAPI-Host': 'jsearch.p.rapidapi.com'
+          'X-RapidAPI-Key': 'ad469f81d0msh6962746a7cd36aap1f6b1cjsne80d732ba04f',
+          'X-RapidAPI-Host': 'jsearch.p.rapidapi.com'
         }
-    };
+      };
+      
 
     const fetchData = async () => {
         setIsLoading(true);
@@ -27,13 +26,15 @@ const useFetch = (endpoint, query) => {
         try{
             const response = await axios.request(options);
 
+            console.log(response.data);
             setData(response.data.data);
             setIsLoading(false);
         } catch (error) {
-            setIsError(error);
+            setError(error);
+            console.log(error);
             alert("An error occured. Please try again later.");
         } finally {
-
+            setIsLoading(false);
         }
     }
 
@@ -46,7 +47,7 @@ const useFetch = (endpoint, query) => {
         fetchData();
     }
 
-    return { data, isLoading, isError, reFetch}
+    return { data, isLoading, error, reFetch}
 }
 
 export default useFetch;
