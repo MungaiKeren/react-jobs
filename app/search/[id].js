@@ -6,7 +6,9 @@ import axios from 'axios'
 
 import { ScreenHeaderBtn, NearbyJobCard } from '../../components'
 import { COLORS, icons, SIZES } from '../../constants'
-import styles from '../../styles/search'
+import styles from '../../styles/search';
+
+const rapidApiKey = process.env.RAPID_API_KEY;
 
 const JobSearch = () => {
     const params = useSearchParams();
@@ -26,7 +28,7 @@ const JobSearch = () => {
                 method: "GET",
                 url: `https://jsearch.p.rapidapi.com/search`,
                 headers: {
-                    "X-RapidAPI-Key": '32144a8b7cmshc7ac31211a5751bp16e031jsndb298f96d2ae',
+                    "X-RapidAPI-Key": `${rapidApiKey}`,
                     "X-RapidAPI-Host": "jsearch.p.rapidapi.com",
                 },
                 params: {
