@@ -5,6 +5,14 @@
       "bundler": "metro"
     },
     "name": "react-jobs",
-    "slug": "react-jobs"
+    "slug": "react-jobs",
+    "extra": {
+      "eas": {
+        "projectId": "51fd438c-9f89-4ce2-be2d-8971c4e30e78"
+      }
+    },
+    "android": {
+      "package": "com.kerenw.reactjobs"
+    }
   }
 }
